@@ -17,12 +17,18 @@ var Constraints = {
   VENDOR_SCRIPTS: ['./app/vendor/jquery/dist/jquery.min.js']
 }
 
+/* Node modules */
+var express = require('express'),
+    app     = express(),
+    http    = require('http').Server(app);
+
 /* Gulp modules */
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    server = require('gulp-server-livereload');
 
 
 gulp.task('styles', function(){
@@ -46,4 +52,12 @@ gulp.task('compress', function() {
       }
     }))
     .pipe(gulp.dest(Constraints.BUILD_SCRIPTS))
+});
+
+gulp.task('serve', function() {
+  app.use(express.static(__dirname + '/app', { maxAge: 0 }));
+
+  http.listen(8081, 'localhost', function(){
+    console.log('Served in http://localhost:8081');
+  });
 });
