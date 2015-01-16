@@ -4,19 +4,10 @@
   "description": "A simple Gulp bootstrap environment.",
   "main": "gulpfile.js",
   "dependencies": {},
-  "devDependencies": {
-    "gulp-connect": "^2.0.6",
-    "gulp": "^3.8.7",
-    "gulp-sass": "^0.7.2",
-    "gulp-uglify": "^0.3.1",
-    "gulp-jasmine": "^0.3.0",
-    "gulp-watch": "^0.6.9",
-    "gulp-usemin": "^0.3.7",
-    "gulp-minify-html": "^0.1.4"
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "gulp test",
-    "preinstall" : "sudo npm install -g gulp"
+    "preinstall" : "npm install -g gulp"
   },
   "repository": {
     "type": "git",
