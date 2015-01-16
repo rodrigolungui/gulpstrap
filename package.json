@@ -4,10 +4,13 @@
   "description": "A simple Gulp bootstrap environment.",
   "main": "gulpfile.js",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp-concat": "^2.4.3",
+    "gulp-sass": "^1.3.1"
+  },
   "scripts": {
     "test": "gulp test",
-    "preinstall" : "npm install -g gulp"
+    "preinstall": "npm install -g gulp"
   },
   "repository": {
     "type": "git",
@@ -18,6 +21,9 @@
     "bootstrap"
   ],
   "author": "Evandro Eisinger <evandroeisinger@gmail.com> (http://evandroeisinger.github.io/)",
+  "contributors": [
+    "Rodrigo Lungui <lungui.rodrigo@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/evandroeisinger/gulpstrap/issues"
