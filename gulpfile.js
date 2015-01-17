@@ -28,7 +28,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
-    server = require('gulp-server-livereload');
+    watch  = require('gulp-watch'),
+    run    = require('gulp-sequence');
 
 
 gulp.task('styles', function(){
@@ -51,8 +52,20 @@ gulp.task('compress', function() {
         path.basename += '.min';
       }
     }))
-    .pipe(gulp.dest(Constraints.BUILD_SCRIPTS))
+    .pipe(gulp.dest(Constraints.BUILD_SCRIPTS));
 });
+
+gulp.task('watch', function () {
+    watch(Constraints.SRC_SCRIPTS, function () {
+      gulp.start('teste');
+    });
+
+    watch(Constraints.SRC_STYLES, function(){
+      gulp.start('styles');
+    });
+});
+
+gulp.task('teste', run('scripts', 'compress'));
 
 gulp.task('serve', function() {
   app.use(express.static(__dirname + '/app', { maxAge: 0 }));
